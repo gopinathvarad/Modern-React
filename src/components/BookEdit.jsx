@@ -1,5 +1,5 @@
-import React from "react";
 import { useState } from "react";
+
 function BookEdit({ book, onSubmit }) {
   const [title, setTitle] = useState(book.title);
 
@@ -9,16 +9,17 @@ function BookEdit({ book, onSubmit }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     onSubmit(book.id, title);
   };
-}
 
-return (
-  <form onsubmit={handleSubmit} className="book-edit">
-    <label>Title</label>
-    <input className="input" value={title} onChange={handleChange} />
-    <button className="button is-primary">Save</button>
-  </form>
-);
+  return (
+    <form onSubmit={handleSubmit} className="book-edit">
+      <label>Title</label>
+      <input className="input" value={title} onChange={handleChange} />
+      <button className="button is-primary">Save</button>
+    </form>
+  );
+}
 
 export default BookEdit;
